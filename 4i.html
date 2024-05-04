@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Buttons</title>
+    <style>
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        height: 36px;
+        width: 149px;
+        justify-content: space-between;
+        align-items: center;        
+      }
+      .cart{
+        color: black;
+        background-color: yellow;        
+      }
+      .buy{
+        color: black;
+        background-color: green;
+      }
+      .buttons2 {
+        display: flex;
+        flex-direction: column;
+        width: 128px;
+        height: 49px;
+        justify-content: space-between;
+        margin-top: 28px;
+      }
+      .cart2 {
+        color: aliceblue;
+        background-color: brown;
+        border:none;
+      }
+      .buy2 {
+        color: crimson;
+        background-color:lawngreen;
+        border:none;
+      }
+      .cart2:hover, .buy2:hover {
+        cursor: pointer;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      Adults Plain Cotton T-shirt
+    </div>
+    <div>
+      Price: $7.99
+    </div>
+    <div class="buttons">
+      <button class="cart" onclick="alert('Added to cart!')">
+        Add to cart
+      </button>
+      <button class="buy" onclick="alert('Purchased')">
+        Buy now
+        <script>
+          console.log('loading...') 
+        </script>
+      </button>
+    </div>
+    <div class="buttons2">
+      <button class="cart2" 
+      onclick="alert('Total items (' + (1 * 2) + '): $' + (228 + 149) /100);">
+      Add To Cart</button>
+      <button class="buy2"
+      onclick="alert(`Total purchases (${1 + 1}): $${(228 + 128) / 100}`);">
+        Buy It Now</button>
+      <script>
+        console.log(`Application started...`)
+      </script>
+    </div>
+  </body>
+</html>
