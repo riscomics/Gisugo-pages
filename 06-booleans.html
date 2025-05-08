@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Booleans</title>
+    <style>
+      body {
+        background-color: cadetblue;
+      }
+    </style>
+  </head>
+  <body>
+
+    <script> 
+
+      const randomNumber = Math.random(); 
+
+      result = randomNumber >= .5 ? 'heads' : 'tails';
+      console.log(result);
+
+      const guess = 'heads';
+      console.log(guess === result ? 'You win.' : 'You lose.');
+
+      const ageLegal = Math.floor(Math.random() * 30); 
+
+      const bartender = ageLegal >= 21 ? 'adult' : 'minor';
+      console.log(bartender);
+
+      const bouncer = 'adult';
+      console.log(bouncer === bartender ? 'Have a great time!' : 'No minors allowed.');
+
+      
+/* 
+      
+      const randomNumber = Math.random();
+
+      let result; 
+
+      if (randomNumber <= .5){
+        console.log(result = 'heads');
+      } else {
+        console.log(result = 'tails');
+      }
+
+      const guess = 'heads';
+
+      if (guess === result){
+        console.log('You win!');
+      } else {
+        console.log('You lose.');
+      }
+
+    const age = 65;
+    let isHoliday = true;
+    
+    if ((age <= 6 || age >= 65) && isHoliday){
+      console.log('Discount');
+    } else {
+      console.log('No discount');
+    }
+       
+    const hour = 16; 
+    const name = 'Peter';
+
+      if (hour >= 6 && hour < 12){
+        console.log(`Good morning ${name}!`);
+      } else if (hour >= 12 && hour <= 17){
+        console.log(`Good afternoon ${name}!`);
+      } else {
+        console.log(`Good evening ${name}!`);
+      }
+
+      /* 
+      const trueValue = true ? 'truthy' : 'falsy'
+      console.log(trueValue);
+
+      false && console.log('hello');
+
+      const message = true && 'Yup!';
+      console.log(message);
+
+      const currency = undefined || 'USD';
+      console.log(currency);
+
+      a shortcut of: 
+      
+      if (trueValue) 
+      {
+        'truthy'
+      } else {'falsy'} 
+      
+      */
+
+
+      /*  
+      if (0) {
+        console.log('truthy');
+      }
+
+      const cartQuantity = 5;
+
+      if (cartQuantity) {
+        console.log('car has products');
+      }
+      
+      console.log(!0); the ! 'not' operator reverses value */
+
+      /*
+      console.log(true && true);
+      console.log(0.2 >= 0 && 0.2 < 1/3);
+
+      console.log(true || false);
+
+      console.log(!true);
+      console.log(!false);
+      */
+
+
+      /*
+      const legalAge = 17;
+      const college = 18;
+
+      if (legalAge >= 21){
+        console.log('You are legal of age to drink alcohol.');
+        console.log('Have a good time!');
+      } else if (college >= 18)
+        console.log('Everybody knows college kids drink at parties.');
+        else {
+          console.log('Underaged drinking is not allowed!');
+        }
+
+      if (true) 
+        console.log('it\'s true');
+        else {
+        console.log('something else');
+      } */
+
+ 
+    </script>
+  </body>
+</html>

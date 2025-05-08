@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Variables</title>
+    <style>
+      .market {
+        display: flex;
+        flex-direction: row;
+        margin-top: 28px;
+        margin-left: 21x;
+        width: 828px;
+        justify-content: space-between;
+        border-style: solid;
+      }
+      .key {
+        font-size: 28px;
+        padding: 5px 15px;
+      }
+      .key:hover {
+        color: aliceblue;
+        background-color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="market">
+      <button class="key" onclick="
+        console.log(`Portfolio Total: ${cryptoPortfolio + aero + sui + sol + eth + btc}`);">
+        Portfolio Total
+      </button>
+      <button class="key" onclick="
+        aero ++;
+        console.log(`Aero: ${aero}`);">
+        Buy Aero
+      </button>
+      <button class="key" onclick="
+        sui ++;
+        console.log(`SUI: ${sui}`);">
+        Buy SUI
+      </button>
+      <button class="key" onclick="
+        sol ++;
+        console.log(`SOL: ${sol}`);">
+        Buy SOL
+      </button>
+      <button class="key" onclick="
+        eth ++;
+        console.log(`ETH: ${eth}`);">
+        Buy ETH
+      </button>
+      <button class="key" onclick="
+        btc ++;
+        console.log(`BTC: ${btc}`);">
+        Buy BTC
+      </button>
+      <button class="key" onclick="
+        cryptoPortfolio = 0;
+        console.log(`Portfolio has been reset: ${cryptoPortfolio = 0}`);">
+        RESET
+      </button>
+    </div>
+
+  
+      <script>
+        let aero = 0;
+        let sui = 0;
+        let sol = 0;
+        let eth = 0;
+        let btc = 0;
+        let cryptoPortfolio = aero + sui + sol + eth + btc;
+        
+        let name = 'Peter';
+        console.log(`My name is: ${name}`);
+
+        let buy = (3 * 2) + 5 + 9;
+        console.log(`Total food bought: $${buy}`);
+
+        let tax = .1;
+        console.log(`Estimated tax: $${buy * tax}`);
+
+        let total = buy + (buy * tax);
+        console.log(`Total Price w/Tax: $${buy + (buy * tax)}`);
+
+
+
+
+        /*
+        
+        let cost = 5 + (2 * 3) + 9;
+        console.log(`Cost of food: $${cost}`);
+
+        let tax = 0.1;
+        console.log(`Estimated tax (10%): $${cost * tax}`);
+
+        let total = cost + tax;
+        console.log(`Total Purchase: $${cost + (cost * tax)}`); 
+
+        let bonus = 45;
+        console.log(`Total Allowance: ${(cost + (cost * tax)) + bonus}`);
+        */
+
+      </script>
+  </body>
+</html>

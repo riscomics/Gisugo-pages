@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rock Paper Scissors</title>
+    <style>
+
+      body {
+        color: rgb(88, 191, 103);
+        background-color:rgb(29, 28, 32);
+      }
+      .game {
+        display: flex;
+        flex-direction: column;
+        height: 80px;
+        width: 300px;
+        justify-content: space-between;
+        margin-top: 28px;     
+      }
+      .gamebuttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .buttons {
+        font-size: 20px;
+        padding: 4px 15px;
+        border-radius: 15px;
+        border: none;
+        color: aliceblue;
+        background-color: rgb(49, 29, 230);
+      }
+      .buttons:hover {
+        color: aliceblue;
+        background-color: brown;
+        cursor: pointer;
+      }
+      .gamename {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-self: center;
+        width: 249px; 
+      }
+
+      .game2 {
+        display: flex;
+        flex-direction: column;
+        height: 65px;
+        width: 288px;
+        justify-content: space-between;
+        margin-top: 49px; 
+      }
+      .gamebuttons2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-self: center;
+        width: 300px;          
+      }
+      .gamebuttons3 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-self: center;
+        width: 349px;         
+      }
+      .buttons2 {
+        font-size: 12px;
+        padding: 5px 10px;
+        background-color: darkgrey;
+      }
+      .buttons2:hover {
+        color: aliceblue;
+        background-color: brown;
+        cursor: pointer;
+      }
+      .gamename2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-self: center;
+        width: 300px;         
+      }
+
+      .left {
+        display: flex;
+        flex-direction: column;
+        width: 328px;
+        height: 388px;        
+        border-style: solid;
+        border-color: aqua;
+        align-items: center;
+      }
+      .right {
+        display: flex; 
+        flex-direction: column;        
+        width: 388px;
+        height: 388px;
+        align-items: center;
+        border-color: aqua;
+        border-style: solid;
+      }
+      .section1 {
+        display: flex;
+        flex-direction: row;
+        width: 749px;
+        height: 388px;         
+        justify-content: space-between; 
+      }
+      .section2 {
+        display: flex;
+        flex-direction: row;
+        width: 749px;
+        height: 388px;   
+        justify-content: space-between;
+      }
+      .page {
+        display: flex;
+        flex-direction: column;
+        height: 788px;
+        width: 778px;
+        justify-content: space-between;
+        align-items: center; 
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="section1">
+        <div class="left">
+          <div class="game">
+            <div class="gamename">
+              <P>ROCK</P>
+              <P>PAPER</P>
+              <P>SCISSORS</P>
+            </div>
+            <div class="gamebuttons">
+              <button class="buttons" onclick="
+              playGame(`Rock`);
+
+                ">Rock</button>
+              <button class="buttons" onclick="              
+              playGame(`Paper`);
+
+                ">Paper</button>
+              <button class="buttons" onclick="               
+              playGame(`Scissors`);
+
+                ">Scissors
+              </button>
+              <button onclick="
+              gameScore.wins = 0;
+              gameScore.losses = 0;
+              gameScore.ties = 0;
+              ">
+                0
+              </button>
+            </div>
+          </div>
+          <div class="game2">
+            <div style="margin: auto;">Are You Old Enough To Drink?</div>
+            <div class="gamename2">
+              <P>Person 1</P>
+              <P>Person 2</P>
+              <P>Person 3</P>
+            </div>
+            <div class="gamebuttons2">
+              <button class="buttons2" onclick="              
+              enterBar();
+
+              ">Enter Bar</button>
+              <button class="buttons2" onclick="
+              enterBar();
+
+              ">Enter Bar</button>
+              <button class="buttons2" onclick="
+              enterBar();
+
+              ">Enter Bar</button>
+            </div>
+          </div>
+          <div class="game2">
+
+            <div style="margin: auto;">Paycheck Hours and Pay</div>
+            <div class="gamename2">
+              <P>1 Week </P>
+              <P>2 Weeks</P>
+              <P>1 Month </P>
+            </div>
+            <div class="gamebuttons2">
+              <button class="buttons2" onclick="
+
+              const hours = Math.floor((Math.random() * 55) + 1);
+              let work = '';
+
+              if(hours >= 0 && hours <= 30){
+                work = 'part-time';
+              } else if(hours > 30 && hours <= 40){
+                work = 'fulltime';
+              } else {
+                work = 'overtime';
+              }
+
+              regHours = hours <= 40 ? hours : 40;
+              overtimeHours = hours > 40 ? hours - 40 : 0;
+
+              let paid = 0; 
+
+              if(work === 'part-time' && work === 'fulltime'){
+                paid = regHours * 30;
+              } else {
+                paid = (regHours * 30) + (overtimeHours * 45);
+              }
+
+              alert(`You worked a total of ${hours} hours this week, which is considered ${work} with ${regHours} regular hours and ${overtimeHours} overtime hours.
+
+              This earns you a total of $${paid} dollars.`);
+              
+                ">Work hours</button>
+              <button class="buttons2" onclick="
+              const hours1 = Math.floor(Math.random() * 55);
+              const hours2 = Math.floor(Math.random() * 55);
+
+              week1 = '';
+              week1 = hours1 >= 0 && hours1 < 30 ? 'part-time'
+                    : hours1 >= 30 && hours1 < 40 ? 'fulltime'
+                    : 'overtime';
+
+              regHours1 = hours1 <= 40 ? hours1 : 40;
+              overtimeHours1 = hours1 >= 40 ? hours1 - 40 : 0;
+
+              week2 = '';
+              week2 = hours2 >= 0 && hours2 < 30 ? 'part-time'
+                    : hours2 >= 30 && hours2 < 40 ? 'fulltime'
+                    : 'overtime';
+                    
+              regHours2 = hours2 <= 40 ? hours2 : 40;
+              overtimeHours2 = hours2 >= 40 ? hours2 - 40 : 0;
+              
+              payCheck = (regHours1 * 30 + overtimeHours1 * 45) + (regHours2 * 30 + overtimeHours2 * 45);
+
+              alert(`You worked a total of ${hours1} hours on week 1 with ${overtimeHours1} overtime hours, and ${hours2} hours on week 2 with ${overtimeHours2} overtime hours. 
+
+              This earned you a total of $${payCheck} for a 2-week paycheck.`);
+
+
+
+              ">Work hours</button>
+              <button class="buttons2" onclick="              
+              monthlyPay(91, 92); 
+              monthlyPay(105, 107);    
+              monthlyPay(90, 105);                 
+              ">Work hours</button>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="game">
+            <div class="gamename">
+              <P>Ask</P>
+              <P>Her</P>
+              <P>Out</P>
+            </div>
+            <div class="gamebuttons">
+              <button class="buttons" onclick="
+
+              const hairColor = Math.random();
+
+              let hair = '';
+
+              if (hairColor >= 0 && hairColor < 1/4){
+                hair = 'blonde';
+              } else if (hairColor >= 1/4 && hairColor < 2/4){
+                hair = 'brown';
+              } else if (hairColor >= 2/4 && hairColor < 3/4){
+                hair = 'red';
+              } else {
+                hair = 'black';
+              }
+
+              const attraction = Math.floor(Math.random () * 10);
+              let girlSays = '';
+
+              if (attraction >= 0 && attraction < 3){
+                girlSays = 'No thank you.';
+              } else if (attraction >= 3 && attraction < 7){
+                girlSays = 'Maybe. Let me think about it...';
+              } else {
+                girlSays = 'Sure! I\'d love to go out with you!';
+              }
+
+              alert(`You asked the ${hair} haired girl out on a date. She says ${girlSays}`);
+
+              ">Girl 1</button>
+
+              <button class="buttons" onclick="
+              
+              const hairColor = Math.random();
+
+              let hair = '';
+
+              hair = hairColor < 1/4 ? 'blonde'
+                  : hairColor < 2/4 ? 'brown'
+                  : hairColor < 3/4 ? 'red'
+                  : 'black';
+
+              const attraction = Math.floor(Math.random() * 10);
+              
+              let girlSays ='';
+
+              girlSays = attraction < 3 ? 'No thank you.'
+                      : attraction < 7 ? 'Maybe. Let me think about it...'
+                      : 'Sure! I\'d love to go out with you!';
+
+              alert(`You asked the ${hair} haired girl out on a date. She says ${girlSays}`);
+      
+              ">Girl 2</button> 
+
+              <button class="buttons" onclick="
+              
+              const hairColor = Math.random();
+
+              let hair = '';
+
+              if (hairColor >= 0 && hairColor < .25){
+                hair = 'blonde';
+              } else if (hairColor >= .25 && hairColor < .50){
+                hair = 'brown';
+              } else if (hairColor >= .50 && hairColor < .75){
+                hair = 'red';
+              } else {
+                hair = 'black';
+              }
+
+              const attraction = Math.floor(Math.random() * 10);
+
+              let girlSays = '';
+
+              if (attraction >= 0 && attraction < 3){
+                girlSays = 'No thank you.';
+              } else if (attraction >= 3 && attraction < 7){
+                girlSays = 'Maybe. let me think about it.';
+              } else {
+                girlSays = 'Sure! I\'d love to go out with you!';
+              }
+
+              alert(`You asked the ${hair} haired girl out on a date. She says ${girlSays}`);
+              
+              ">Girl 3</button>
+            </div>
+          </div>
+          <div class="game2">
+            <div style="margin: auto;">Flip and Find the Ball</div>
+            <div class="gamename2">
+              <P>Cup 1</P>
+              <P>Cup 2</P>
+              <P>Cup 3</P>
+            </div>
+            <div class="gamebuttons2">
+              <button class="buttons2" onclick="
+              
+              const cupFlip = Math.floor(Math.random () * 30);
+
+              let chance = cupFlip >= 15 ? 'found' : 'missing';
+
+              const message = chance === 'found'
+                ? `Great! You flipped the cup and ${chance} the ball.`
+                : `You flipped the cup but the ball is ${chance}. Try again!`;
+              
+              alert(message);
+
+                ">Flip Cup</button>
+              <button class="buttons2" onclick="
+
+              const cupFlip = Math.floor(Math.random () * 30);
+
+              let chance = '';
+
+              if (cupFlip >= 15){
+                chance = 'found';
+              } else {
+                chance = 'missing';
+              }
+
+              let message = '';
+
+              if (chance === 'found'){
+                message = `Great! You flipped the cup and ${chance} the ball.`;
+              } else {
+                message = `You flipped the cup but the ball is ${chance}. Try again!`
+              }
+
+              alert(message);
+ 
+              ">Flip Cup</button>
+              <button class="buttons2" onclick="
+              
+              const cupFlip = Math.floor(Math.random () * 30);
+
+              let chance = cupFlip >= 15 ? 'found' : 'missing';
+
+              let message = '';
+
+              if (chance === 'found'){
+                message = `Great! You flipped the cup and ${chance} the ball.`;
+              } else {
+                message = `You flipped the cup but the ball is ${chance}. Try again!`;
+              }
+
+              alert(message);
+              
+              ">Flip Cup</button>
+            </div>
+          </div>
+          <div class="game2">
+            <div style="margin: auto;">How much did you earn this month?</div>
+            <div class="gamename2">
+              <P>Week 1  </P>
+              <P>Week 2</P>
+              <P>Week 3  </P>
+              <P>Week 4  </P>
+              <P>Total  </P>
+            </div>
+            <div class="gamebuttons3">
+              <button class="buttons2" onclick="
+              const hours = Math.floor(Math.random () * 40);
+              const paidHour = 20; 
+
+              totalPay += hours * paidHour;
+
+              alert(`You worked a total of ${hours} hours and have earned $${totalPay}`);
+
+                ">hours</button> 
+              <button class="buttons2" onclick="  
+              const hours = Math.floor(Math.random () * 40);
+              const paidHour = 20;
+
+              totalPay += hours * paidHour;
+
+              alert(`You worked a total of ${hours} hours this week, earning $${hours * paidHour} and have now earned so far $${totalPay}.`);
+
+              ">hours</button> 
+              <button class="buttons2" onclick="
+              
+              const hours = Math.floor(Math.random () * 40);
+              const paidHour = 20;
+
+              totalPay += hours * paidHour;
+              alert(`You worked a total of ${hours} hours this week, earning $${hours * paidHour} and have now earned so far $${totalPay}.`);
+              ">hours</button> 
+              
+              <button class="buttons2" onclick="
+
+              const hours = Math.floor(Math.random () * 40);
+              const paidHour = 20;
+
+              totalPay += hours * paidHour;
+
+              alert(`You have worked a total of ${hours} hours this week with a pay of $${hours * paidHour} and have now earned so far $${totalPay}.`);
+
+              ">hours</button> 
+
+              <button class="buttons2" onclick="
+              alert(`You have earned a total of $${totalPay} this month.`);
+              ">Month Total</button>  
+              <button class="buttons2" onclick="
+              alert(`You have restarted a new month with $${totalPay = 0} pay.`);
+              ">Reset</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section2">
+        <div class="left">
+          <div class="game">
+            <div class="gamename">
+              <P>ROLL</P>
+              <P>THE</P>
+              <P>DICE</P>
+            </div>
+            <div class="gamebuttons">
+              <button class="buttons" onclick="
+                diceRoller();
+                ">Roll 1
+              </button>
+
+              <button class="buttons" onclick="
+               diceRoller2();
+                ">Roll 2
+              </button>
+
+              <button class="buttons" onclick="
+               diceRoller3();                                    
+                ">Roll 3
+              </button> 
+            </div>
+          </div>
+          <div class="game2">
+
+            <div style="margin: auto;">Political Polls</div>
+            <div class="gamename2">
+              <P>Climate</P>
+              <P>Free Speech</P>
+              <P>Immigration</P>
+            </div>
+            <div class="gamebuttons2">
+              <button class="buttons2" onclick="
+               politicalPoll()
+               alert(`Polls are in about the issue of Climate Change for ${yearlyPolls.Year}: 
+Concerned: ${climateCare.Concerned}%  Unconcerned: ${climateCare.Unconcerned}%  Nonbeliever: ${climateCare.Nonbeliever}%`);;
+                ">Values
+              </button>
+
+              <button class="buttons2" onclick="
+              politicalPoll()
+              alert(`Polls are in about the issue of Free Speech for ${yearlyPolls.Year}: 
+Restricted: ${freeSpeech.Less}%  Unsafe: ${climateCare.Unconcerned}%  Unchanged: ${climateCare.Nonbeliever}%`);
+                ">Values
+              </button>
+
+              <button class="buttons2" onclick=" 
+              politicalPoll()
+              alert(`Polls are in about the issue of Border Security for ${yearlyPolls.Year}: 
+
+Close the Border: ${freeSpeech.Less}%  
+Keep Open: ${climateCare.Unconcerned}%  
+Secure Border but improve migrant processing: ${climateCare.Nonbeliever}%`);
+                ">Values
+              </button>
+            </div>
+
+          </div>
+          <div class="game2">
+
+            <div style="margin: auto;">Practice:</div>
+            <div class="gamename2">
+              <P>SPANISH  </P>
+              <P> </P>
+              <P> </P>
+            </div>
+            <div class="gamebuttons2">
+              <button class="buttons2" onclick="
+              practicePronoun();
+                ">Function
+              </button>
+              <button class="buttons2" onclick=" 
+              convertLength(50, 'miles', 'km');
+              convertLength(32, 'km', 'miles');
+              convertLength(50, 'km', 'km');
+              convertLength(5, 'miles', 'km');
+              convertLength(5, 'miles', 'ft');
+              convertLength(5, 'km', 'ft');
+              convertLength(5, 'lbs', 'lbs');
+                ">Function
+              </button>
+              <button class="buttons2" onclick="                
+              getFuel();
+                ">Function
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="game">
+            <div class="gamename">
+              <P>Personal</P>
+              <P>Travel</P>
+              <P>Cost</P>
+            </div>
+            <div class="gamebuttons">
+              <button class="buttons" onclick="
+
+              const miles = Math.floor(Math.random () * 10);
+
+              const costRate = (miles * .68).toFixed(2);
+              
+              alert(`You traveled a total distance of ${miles} miles, which costs a total of $${costRate}`);
+              
+              ">By Car</button>
+
+              <button class="buttons" onclick="
+              
+              const season = Math.floor(Math.random () * 12);
+
+              let peak = '';
+
+              if(season >= 1 && season <= 4){
+                peak = 'winter';
+              } else if(season >= 4 && season <=8){
+                peak = 'summer';
+              } else {
+                peak = 'holiday';
+              }
+
+              const distanceHours = Math.floor(Math.random () * 20);
+              const airPrice = distanceHours * 100;
+              let destination = '';
+
+              if(distanceHours >= 0 && distanceHours <= 5){
+                destination = 'domestic';
+              } else if (distanceHours > 5 && distanceHours <= 20){
+                destination = 'international';
+              }  
+
+              alert(`You flew ${destination} during the peak of the ${peak} season which cost $${airPrice} and had a duration of ${distanceHours} hours.`);
+      
+              ">By Air</button> 
+
+              <button class="buttons" onclick="
+              
+              const hotelStay = Math.floor(Math.random() * 10) +1; 
+              const hotelClass = Math.floor(Math.random() * 3) +1;                            
+              const hotelTotal = hotelStay * 80 * hotelClass; 
+              const hotelPrice = hotelTotal / hotelStay;
+
+              alert(`You stayed at a Class ${hotelClass} hotel for ${hotelStay} days at $${hotelPrice} per night and cost a total of $${hotelTotal}`);
+
+              ">Hotel</button>
+            </div>
+          </div>
+          <div class="game2">
+            <div style="margin: auto;">Monthly Food Cost</div>
+            <div class="gamename2">
+              <P>Precooked</P>
+              <P>Costco</P>
+              <P>Fast Food</P>
+            </div>
+            <div class="gamebuttons2">
+              <button class="buttons2" onclick="
+              
+              const boss = Math.floor(Math.random() * 10);
+
+              let bossDiscount = 0;
+
+              bossDiscount = boss >= 0 && boss <= 5 ? 10 : 20;
+
+              const retail = 75; 
+              const foodDiscount = (retail * bossDiscount) / 100;
+              const foodTotal = retail - foodDiscount;
+
+              let bossMood = ''; 
+
+              bossMood = boss >= 0 && boss <= 5 ? 'discount'
+                       : 'generous';
+
+              let message = ''; 
+
+              if (bossMood === 'discount'){
+                message = 'the restaurant owner agreed to give you a';
+              } else {
+                message = 'the owner of the restaurant was feeling';
+              }
+
+              alert(`Your tray of precooked vegetables has a retail price of $${retail} but ` +
+              `today cost a total of $${foodTotal} after receiving a ${bossDiscount}% discount because ${message} ${bossMood}.`);
+
+
+                ">Food Tray</button>
+              <button class="buttons2" onclick="
+
+              const foodShop = Math.floor(Math.random() * 10 +1); 
+
+              const hotDog = 1.50; 
+              const meatBalls = 14.95; 
+              const sausages = 14.95; 
+              const waterGallons = 10.95;
+
+              let message = '';
+
+              if(foodShop >= 1 && foodShop <= 3){
+                message = 'a hotdog with soda';
+              } else if(foodShop > 3 && foodShop <= 6){
+                message = 'packs of meatballs and sasusages';
+              } else if(foodShop > 6 && foodShop <= 9){
+                message = 'box of water gallon jugs';
+              } else{
+                message = 'packs of meatballs and sausages with a box of water gallons and a hotdog with soda';
+              }
+
+              let foodTotal = 0;
+
+              foodTotal = foodShop >= 1 && foodShop <= 3 ? hotDog
+                        : foodShop > 3 && foodShop <= 6 ? meatBalls + sausages
+                        : foodShop > 6 && foodShop <= 9 ? waterGallons
+                        : hotDog + meatBalls + sausages + waterGallons; 
+
+              alert(`You went to shop at Costco today and bought ${message} which cost a total of $${foodTotal.toFixed(2)}`);
+              
+              ">Groceries</button>
+              <button class="buttons2" onclick="
+
+              const foodCraving = Math.floor(Math.random() * 6) +2;
+
+              let foodBuys = '';
+              foodBuys = foodCraving === 1 ? 'once' : `${foodCraving} times`;
+
+              const foodCuisine1 = Math.floor(Math.random() * 3) +1; 
+
+              let foodType1 = '';
+              if(foodCuisine1 === 1){
+                foodType1 = 'Chinese takeout';
+              } else if(foodCuisine1 === 2){
+                foodType1 = 'Pizza';
+              } else {
+                foodType1 = 'McDonald\'s';
+              }  
+
+              const foodCuisine2 = Math.floor(Math.random() * 2) +1; 
+
+              let foodType2 = '';
+              if(foodCuisine2 === 1){
+                foodType2 = 'Starbucks';
+              } else{
+                foodType2 = 'food court';
+              }
+
+              const foodTaste1 = Math.floor(Math.random() * (foodCraving - 1)) +1; 
+              const foodTaste2 = foodCraving - foodTaste1; 
+ 
+              alert(`You bought fast food ${foodBuys} this week, 
+              choosing ${foodType1} ${foodTaste1} times and ` + 
+              `${foodType2} ${foodTaste2} times.`); 
+              
+              /*alert(message);*/ 
+              
+              ">Takeout</button>
+            </div>
+          </div>
+          <div class="game2">
+            <div style="margin: auto;">How many calories of food today?</div>
+            <div class="gamename2">
+              <P>Meal</P>
+              <P>Snack</P>
+              <P>Meal</P>
+              <P>Snack  </P>
+              <P>Calorie Count</P>
+            </div>
+            <div class="gamebuttons3">
+              <button class="buttons2" onclick="
+              const foodItems = Math.floor(Math.random() * 5) +1;
+              const foodCalories = 100;
+              
+
+              totalCalories += foodItems * foodCalories;
+              alert(`You just ate ${foodItems} items of food for breakfast and have consumed a total of ${totalCalories} calories so far today.`);
+              ">Food</button> 
+              <button class="buttons2" onclick="
+              const foodItems = Math.floor(Math.random() * 5) +1;
+              const foodCalories = 100;
+
+              totalCalories += foodItems * foodCalories;
+              alert(`You just ate ${foodItems} items of snacks and have consumed a total of ${totalCalories} calories so far today.`);
+              ">Food</button> 
+
+              <button class="buttons2" onclick=" 
+              const foodItems = Math.floor(Math.random() * 5) +1;
+              const foodCalories = 100;
+
+              totalCalories += foodItems * foodCalories;
+              alert(`You just ate ${foodItems} items of food for lunch and have consumed a total of ${totalCalories} calories so far today.`);
+              
+              ">Food</button> 
+              
+              <button class="buttons2" onclick="
+              const foodItems = Math.floor(Math.random() * 5) +1;
+              const foodCalories = 100;
+
+              totalCalories += foodItems * foodCalories;
+              alert(`You just ate ${foodItems} items of food for dinner and have consumed a total of ${totalCalories} calories so far today.`);
+              ">Food</button> 
+
+              <button class="buttons2" onclick="
+              alert(`You have consumed a total of $${totalCalories} calories of food today.`);
+              ">Day Total</button>  
+              <button class="buttons2" onclick="
+              alert(`You have restarted a new day with $${totalCalories = 0} calories.`);
+ 
+              ">Reset</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<script>       
+
+const yearlyPolls = {
+  Year: 2020,
+};
+const climateCare = {
+  Concerned: 0,
+  Unconcerned: 0,
+  Nonbeliever: 0,  
+};
+const freeSpeech = {
+  Less: 0,
+  More: 0,
+  Same: 0,
+};
+const borderSecurity = {
+  Open: 0,
+  Close: 0,
+  Improve: 0,
+};
+function politicalPoll(){
+  const publicSurvey = 100;
+    
+  let survey1 = Math.floor(Math.random() * 100) +1;
+  let survey2 = Math.floor(Math.random() * (publicSurvey - survey1)) +1; 
+  let survey3 = publicSurvey - (survey1 + survey2);
+  
+  yearlyPolls.Year += 1; 
+
+  climateCare.Concerned = survey1;
+  climateCare.Unconcerned = survey2;
+  climateCare.Nonbeliever = survey3;
+
+  freeSpeech.Less = survey1;
+  freeSpeech.More = survey2;
+  freeSpeech.Same = survey3;
+  
+  borderSecurity.Open = survey1;
+  borderSecurity.Close = survey2;
+  borderSecurity.Improve = survey3;
+}
+
+const travelPay = {
+  Flemington: 0,
+  Easton: 0,
+  Carlisle: 0,
+};
+function diceRoller3(){
+
+  travelPay.Flemington = 0;
+  travelPay.Easton = 0;
+  travelPay.Carlisle = 0;  
+  
+  const travelQty = Math.floor(Math.random() *6) +1; 
+  
+  let slot1 = Math.floor(Math.random() *6) +1; 
+  let slot2 = Math.floor(Math.random() *6) +1; 
+  let slot3 = Math.floor(Math.random() *6) +1; 
+  let slot4 = Math.floor(Math.random() *6) +1; 
+  let slot5 = Math.floor(Math.random() *6) +1; 
+  let slot6 = Math.floor(Math.random() *6) +1;  
+
+  let day1 = slot1 <= 2 ? 'Flemington'
+            : slot1 > 2 && slot1 <= 4 ? 'Easton'
+            : 'Carlisle';
+  let day2 = slot2 <= 2 ? 'Flemington'
+            : slot2 > 2 && slot2 <= 4 ? 'Easton'
+            : 'Carlisle';
+  let day3 = slot3 <= 2 ? 'Flemington'
+            : slot3 > 2 && slot3 <= 4 ? 'Easton'
+            : 'Carlisle';
+  let day4 = slot4 <= 2 ? 'Flemington'
+            : slot4 > 2 && slot4 <= 4 ? 'Easton'
+            : 'Carlisle';
+  let day5 = slot5 <= 2 ? 'Flemington'
+            : slot5 > 2 && slot5 <= 4 ? 'Easton'
+            : 'Carlisle';
+  let day6 = slot6 <= 2 ? 'Flemington'
+            : slot6 > 2 && slot6 <= 4 ? 'Easton'
+            : 'Carlisle';
+ 
+
+  travelPay.Flemington += day1 === 'Flemington' ? 1 : 0;
+  travelPay.Flemington += day2 === 'Flemington' ? 1 : 0;
+  travelPay.Flemington += day3 === 'Flemington' ? 1 : 0;
+  travelPay.Flemington += day4 === 'Flemington' ? 1 : 0;
+  travelPay.Flemington += day5 === 'Flemington' ? 1 : 0;
+  travelPay.Flemington += day6 === 'Flemington' ? 1 : 0;
+
+  travelPay.Easton += day1 === 'Easton' ? 1 : 0;
+  travelPay.Easton += day2 === 'Easton' ? 1 : 0;
+  travelPay.Easton += day3 === 'Easton' ? 1 : 0;
+  travelPay.Easton += day4 === 'Easton' ? 1 : 0;
+  travelPay.Easton += day5 === 'Easton' ? 1 : 0;
+  travelPay.Easton += day6 === 'Easton' ? 1 : 0;
+
+  travelPay.Carlisle += day1 === 'Carlisle' ? 1 : 0;
+  travelPay.Carlisle += day2 === 'Carlisle' ? 1 : 0;
+  travelPay.Carlisle += day3 === 'Carlisle' ? 1 : 0;
+  travelPay.Carlisle += day4 === 'Carlisle' ? 1 : 0;
+  travelPay.Carlisle += day5 === 'Carlisle' ? 1 : 0;
+  travelPay.Carlisle += day6 === 'Carlisle' ? 1 : 0;
+
+  let payF = 16;
+  let payE = 30;
+  let payC = 170;
+
+  const totalPaid = (travelPay.Flemington * payF) + (travelPay.Easton * payE) + (travelPay.Carlisle * payC);
+
+  alert(`This week, you drove to: Flemington (${travelPay.Flemington}) Easton (${travelPay.Easton}) Carlisle (${travelPay.Carlisle})
+  Your travel expense compensation total is $${totalPaid}.`);
+}
+
+const rollDivide = { 
+  Odd: 0,
+  Even: 0,
+}; 
+
+function diceRoller2() {
+  const rollingDice = Math.floor(Math.random() * 6) +1;
+
+  let divideDice = ''; 
+
+  divideDice = rollingDice %2 === 0 ? 'Even' : 'Odd';
+
+  rollDivide.Odd += (divideDice === 'Odd') ? 1 : 0;
+  rollDivide.Even += (divideDice === 'Even') ? 1 : 0;
+
+  alert(`You rolled the dice and got a ${rollingDice}, which is ${divideDice}.
+Score:  Even ${rollDivide.Even}  Odd ${rollDivide.Odd}`);
+}
+
+const rollScore = {
+  Wins: 0,
+  Losses: 0,
+  Ties: 0,
+};
+function diceRoller() {
+  const userRoll = Math.floor(Math.random() * 6) +1; 
+  const compRoll = Math.floor(Math.random() * 6) +1; 
+
+  let roundWin = '';
+
+  if(userRoll > compRoll){
+    roundWin = 'win';
+  } else if(compRoll > userRoll){
+    roundWin = 'lose';
+  } else {
+    roundWin = 'tie'
+  }
+
+  if(roundWin === 'win'){
+    rollScore.Wins += 1;
+  } else if(roundWin === 'lose'){
+    rollScore.Losses += 1;
+  } else if(roundWin === 'tie'){
+    rollScore.Ties += 1;
+  }
+
+  alert(`You rolled the dice and got a ${userRoll}. Computer rolled the dice and gets ${compRoll}. 
+In this round, you ${roundWin}.
+Score: Wins ${rollScore.Wins}  Losses ${rollScore.Losses}  Ties ${rollScore.Ties}`);
+}
+
+const gameScore = {
+  wins: 0,
+  ties: 0,
+  losses: 0
+};
+function playGame(userMove) { 
+    const randomNumber = Math.random();
+    let compMove = '';
+    
+    if (randomNumber >= 2/3 && randomNumber < 1) {
+        compMove = 'Scissors';
+    } else if (randomNumber >= 0 && randomNumber < 1/3) {
+        compMove = 'Rock';
+    } else {
+        compMove = 'Paper';
+    }
+ 
+    let score = ''; 
+
+    if (userMove === 'Scissors') {
+        score = compMove === 'Scissors' ? 'Tie.'
+              : compMove === 'Rock' ? 'Lose.'
+              : 'Win.';
+    } else if (userMove === 'Paper') {
+        score = compMove === 'Rock' ? 'Win.'
+              : compMove === 'Paper' ? 'Tie.'
+              : 'Lose.';
+    } else if (userMove === 'Rock') {
+        score = compMove === 'Rock' ? 'Tie.'
+              : compMove === 'Paper' ? 'Lose.'
+              : 'Win.';
+    }
+
+    if (score === 'Win.'){
+      gameScore.wins += 1;
+    } else if (score === 'Lose.'){
+      gameScore.losses += 1;
+    } else if (score === 'Tie.'){
+      gameScore.ties += 1;
+    }
+ 
+    alert(`You picked ${userMove}. The computer picked ${compMove}. You ${score}
+Wins: ${gameScore.wins}, Losses: ${gameScore.losses}, Ties: ${gameScore.ties}
+    `);
+}
+
+
+const driveCycle = {
+  range: 0,
+  finalReceipt: 0,
+  mpg: 0,
+  total: 0,
+  yearly: 0,
+};
+
+function getDistance(){ 
+  return Math.floor(Math.random() * 450) +1;   
+}
+function gallonPrice(){
+  return (Math.random() * (3.28-2.80)) +2.80; 
+}
+function getMPG(){
+  return (Math.random() * (30-20)) +20;
+}
+function getRefuel(){
+  return Math.floor(Math.random() * 4) +1;
+}
+function monthsDriving(){
+  return Math.floor(Math.random() * (12-10)) +10;
+}
+function getFuel(){
+
+  range = getDistance();
+  gallon = gallonPrice(); 
+  mpg = getMPG();
+  receipt = (range / mpg) * gallon;
+  finalReceipt = parseFloat(receipt.toFixed(2));
+
+  refuel = getRefuel();
+  monthCount = monthsDriving();
+  yearlyBudget = (receipt * refuel) * monthCount;
+
+  driveCycle.range = range;
+  driveCycle.finalReceipt = finalReceipt;
+  driveCycle.mpg = parseFloat(mpg.toFixed(2));
+  driveCycle.total += finalReceipt;
+
+  driveCycle.yearly = (finalReceipt * refuel) * monthCount;
+
+  alert(`Driven: ${driveCycle.range} miles
+MPG:  ${driveCycle.mpg}
+Gallon Price: $${gallon.toFixed(2)}
+Receipt: $${driveCycle.finalReceipt}
+Total Spent: $${driveCycle.total}
+Monthly Refueling: ${refuel}
+Number of Months: ${monthCount}
+Yearly Budget: $${driveCycle.yearly}`);
+}
+
+
+function milesKilometers(length){
+  let k = 1.6; 
+  return length * k;
+}
+function kilometersMiles(length){
+  let m =  0.621371;
+  return length * m;
+}
+function kilometersKM(length){
+  let km = 1;
+  return length * km;
+} 
+function kilometersFt(length){
+  let feet = 3281;
+  return length * feet;
+}
+function milesFt(length){
+  let feet = 5280;
+  return length * feet;
+}
+function convertLength(length, from, to){
+  let unit = 0;
+  unit = from === 'miles' && to === 'km' ? milesKilometers(length)     
+       : from === 'km' && to === 'miles' ? kilometersMiles(length)     
+       : from === 'miles' && to === 'ft' ? milesFt(length)       
+       : from === 'km' && to === 'ft' ? kilometersFt(length)       
+       : from !== 'km' && from !== 'miles' && from !== 'ft' ? alert(`Invalid unit: ${from}`)
+       : to !== 'km' && to !== 'miles' && to !== 'ft'? alert(`Invalid unit: ${to}`)
+       : length; 
+
+  alert(`${length} ${from} is approximately ${unit.toFixed(2)} in ${to}.`);
+} 
+
+function chanceWord(){
+  return Math.floor(Math.random() * 225) +1;
+}
+function practicePronoun(){
+  const randoGen = chanceWord();
+  let proNoun = '';
+  proNoun = randoGen >= 1 && randoGen <= 15 ? 'Yo'
+          : randoGen >= 16 && randoGen <= 30 ? 'Nosotros'
+          : randoGen >= 31 && randoGen <= 45 ? 'Tu'
+          : randoGen >= 46 && randoGen <= 60 ? 'Vosotros'
+          : randoGen >= 61 && randoGen <= 75 ? 'El'
+          : randoGen >= 76 && randoGen <= 90 ? 'Ustedes'
+          : randoGen >= 91 && randoGen <= 105 ? 'soy'
+          : randoGen >= 106 && randoGen <= 120 ? 'somos'
+          : randoGen >= 121 && randoGen <= 135 ? 'eres'
+          : randoGen >= 136 && randoGen <= 150 ? 'sois'
+          : randoGen >= 151 && randoGen <= 160 ? 'es'
+          : randoGen >= 161 && randoGen <= 175 ? 'son'
+          : randoGen >= 176 && randoGen <= 190 ? 'estoy'
+          : randoGen >= 191 && randoGen <= 205 ? 'esstamos'
+          : randoGen >= 206 && randoGen <= 220 ? 'estas'
+          : randoGen >= 221 && randoGen <= 235 ? 'estais'
+          : randoGen >= 236 && randoGen <= 250 ? 'esta'
+          : 'estan';
+ 
+  alert(`${proNoun}`);
+}
+
+function getMiles(receipt, gallon, mpg){
+  return (receipt / gallon) * mpg;
+}
+function milesDriven(receipt){
+  let gallon = 2.89;
+  let mpg = 26;
+  mileCount = getMiles(receipt, gallon, mpg);
+  alert(`You drove a total of ${mileCount.toFixed(2)} miles after spending $${receipt} in fuel.`);
+}
+
+function convertToCelcius(fahrenheit){
+  return (fahrenheit - 32) * 5/9;
+}    
+function converToFahrenheit(celcius){
+  return (celcius * 9/5) + 32;
+}
+function convertTemperature(temp, unit){
+  if (unit === 'C'){
+  const realTemp = converToFahrenheit(temp);
+  alert(`${temp} Celcius is ${realTemp} in Fahrenheit.`);
+  } else if (unit === 'F'){
+    const realTemp = convertToCelcius(temp);
+    alert(`${temp} Fahrenheit is ${realTemp} in Celcius.`);
+  }
+}
+
+function dancing(){
+  const minutes = Math.floor(Math.random () * 120);
+
+dance = '';
+
+dance = minutes >= 20 && minutes <= 30 ? 'barely'
+      : minutes >= 30 && minutes <= 60 ? 'just'
+      : minutes >= 60 && minutes <= 90 ? 'above'
+      : minutes >= 90 && minutes <= 120 ? 'twice'
+      : 'not even';
+
+alert(`You danced a total of ${minutes} minutes today, which is actually ${dance} the minimum you had to.`);
+}
+
+function rollDice(){
+  let player1Roll = Math.floor(Math.random() * 6) +1;
+  let player2Roll = Math.floor(Math.random() * 6) +1;
+
+  let typeRoll1 = '';
+  let typeRoll2 = '';
+
+  typeRoll1 = player1Roll %2 === 0 ? 'Even' : 'Odd';
+  typeRoll2 = player2Roll %2 === 0 ? 'Even' : 'Odd';
+
+  let playerScore = '';
+
+  if(player1Roll > player2Roll){
+    playerScore = 'Player One wins';
+  } else if (player2Roll > player1Roll) {
+    playerScore = 'Player Two wins';
+  } else {
+    playerScore = 'Player One and Player Two ties'
+  }
+
+  alert(`An ${typeRoll1} number of ${player1Roll}. An ${typeRoll2} number of ${player2Roll}. ${playerScore}!`);
+
+}
+function enterBar(){
+  
+  let randomAge = Math.floor(Math.random() * 49) +1;
+  let personAge = '';
+
+  personAge = randomAge >= 21 ? 'Adult'
+            : randomAge <= 20 && randomAge >= 17 ? 'Minor'
+            : 'unknown';
+
+  let bartender = '';
+
+  if (personAge === 'unknown'){
+      bartender = 'unknown';
+    } else if (personAge === 'Minor'){
+      bartender = 'Minor';
+    } else {
+      bartender = 'Adult';
+    }
+
+  let bouncer = ''; 
+
+  if(personAge === 'unknown'){
+    bouncer = 'No ID. No Drinks. Period.';
+  } else if (personAge === 'Minor'){
+    bouncer = 'Go home kid!';
+  } else if (personAge === 'Adult'){
+    bouncer = 'Have a great time!';
+  }
+   alert(`A person orders a drink, the bartender says ${bartender}. The bouncer says ${bouncer}`);
+}
+
+  
+function monthlyPay(hours1, hours2){  
+
+  workCycle1 = '';
+  workCycle2 = '';
+
+  workCycle1 = hours1 >= 0 && hours1 <= 60 ? 'part-time'
+              : hours1 > 60 && hours1 <= 80 ? 'fulltime' 
+              : 'overtime';
+
+  workCycle2 = hours2 >= 0 && hours2 <= 60 ? 'part-time'
+              : hours2 > 60 && hours2 <= 80 ? 'fulltime'
+              : 'overtime';
+
+  regHours1 = workCycle1 === 'part-time' || workCycle1 === 'fulltime' ? hours1 : 80;
+  regHours2 = workCycle2 === 'part-time' || workCycle2 === 'fulltime' ? hours2 : 80;
+  
+  overtimeHours1 = workCycle1 === 'overtime' ? hours1 - 80 : 0; 
+  overtimeHours2 = workCycle2 === 'overtime' ? hours2 - 80 : 0;
+
+  grossPay1 = regHours1 * 30 + overtimeHours1 * 45;
+  grossPay2 = regHours2 * 30 + overtimeHours2 * 45;
+
+  insurance1 = 158.60;
+  retirement1 = grossPay1 * .05;
+  benefits1 = insurance1 + retirement1;
+  tax1 = (grossPay1 - benefits1) * .25;
+
+  totalDeductibles1 = tax1 + benefits1;
+
+  insurance2 = 158.60;
+  retirement2 = grossPay2 * .05;
+  benefits2 = insurance2 + retirement2;
+  tax2 = (grossPay2 - benefits2) * .25;
+
+  totalDeductibles2 = tax2 + benefits2;
+
+  payCheck1 = (grossPay1 - totalDeductibles1);
+  payCheck2 = (grossPay2 - totalDeductibles2);
+
+  alert(`You worked a total of ${hours1} hours in the first half of the month and earned a total of $${payCheck1.toFixed(2)} which includes ${overtimeHours1} overtime hours and a total of $${totalDeductibles1.toFixed(2)} in deductibles ($${tax1.toFixed(2)} in tax and $${benefits1.toFixed(2)} in benefits).
+  
+In the second half of the month, you worked an additional ${hours2} hours and earned a total of $${payCheck2.toFixed(2)} with ${overtimeHours2} overtime hours and a total of $${totalDeductibles2.toFixed(2)} in deductibles ($${tax2.toFixed(2)} in tax and $${benefits2.toFixed(2)} in benefits).`);
+
+}
+
+    /*
+function boardGame(cost, shipping = 5000){
+  alert(`The boardgame costs $${cost} to produce 1500 copies, and shipping is $${shipping}. Total cost is $${cost + shipping}`);
+} 
+boardGame(16778, 6850)
+boardGame(9500)
+    
+function getTax(income, taxRate = 0.1) {      
+console.log(income * taxRate);
+}
+getTax(1000, .2)
+getTax(10000)
+
+function alertPage(){
+  const rollDice = Math.floor(Math.random() * 6) +1; 
+  let oddEven = '';
+  oddEven = rollDice % 2 === 0 ? 'Even' : 'Odd';
+  alert(`This page reloads with a roll of the dice. You rolled an ${oddEven} number of ${rollDice}`);
+}
+alertPage();*/
+
+    let totalCalories = 0;
+    let totalPay = 0;      
+    </script>
+  </body>
+</html>

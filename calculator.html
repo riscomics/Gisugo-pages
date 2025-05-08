@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+    <style>
+      .calculator {
+        display: flex;
+        flex-direction: row;        
+        width: 388px;
+        justify-content: space-between;
+      }
+      .key {
+        font-size: 49px;
+        padding: 10px 25px;
+      }
+      .key:hover {
+        color: aliceblue;
+        background-color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <button class="key" onclick="
+        calculation += '1';
+        console.log(calculation);">
+        1
+      </button>
+      <button class="key" onclick="
+        calculation += '2';
+        console.log(calculation);">
+        2
+      </button>
+      <button class="key" onclick="
+        calculation += '3';
+        console.log(calculation);">
+        3
+      </button>
+      <button class="key" onclick="
+        calculation += ' + ';
+        console.log(calculation);">
+        +
+      </button>
+      <button class="key" onclick="
+        calculation =eval(calculation);
+        console.log(calculation);">
+        =
+      </button>
+    </div>
+    <script>
+      let calculation = '';
+    </script>
+  </body>
+</html>
