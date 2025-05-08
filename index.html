@@ -1,154 +1,476 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GISUGO - Local Service Marketplace</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-    }
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="local, service, gig, Marketplace">
+        <meta name="description" content="A marketplace for searching and posting jobs in your local neighborhood.">
+        <title>Gisugo&copy; Home</title>
+        <style>
+            @media (min-width: 870px) {
+                 
+            body {
+                background-color: #856f67;
+            }
+            #headbc {
+                width: auto;
+                height: 150px;
+                background-color: #e6d6ae;   
+            }
+            #logo {                
+                padding-left: 20px;
+                padding-top: 12px;
+                padding-right: 8px;
+                float: left;
+                margin-right: 2px;
+            }
+            #logo img {
+                width: 128px;
+            }
+            #menu {
+                float: right;
+                margin:auto;
+                padding-top: 35px;
+                padding-right: 25px;
+            }
+            #menu img {
+                    width: 80px;
+                }                
+            #titles {
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                font-size: 88px;
+                text-align: left;
+                color: #363f4f;
+                margin:auto
+                line-height: 0px;
+            }
+            #subtitle {
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                font-size: 38px;
+                text-align: left;
+                color: #363f4f;
+                float: left;     
+                margin-left: 10px;                
+            }
+  
+            #youtube {
+                float: center;
+                clear: none;
+                line-height: 0px;
+                background-color: #363f4f;
+            }
+            #youtube img {
+                    width: 828px;
+                }
+            .linebreak {
+                background-color: #ff7bd5;
+                width: auto;
+                height: 18px;
+            }
+            .category {
+                background-color: #363f4f;
+                color: #e6d6ae;
+                font-size: 45px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                text-align: center;
+                width: auto;
+                height: 72px;
+                padding-top: 15px;
+                margin-bottom: 45px;
+            }
+            #container1 {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                 
+            }
+            #container1 > div {
+                margin: 15px;
+                margin-bottom: 100px;
+                padding: 10px;
+                width: 235px;                
+            }
+            .boxframe {                
+                width: 235px;
+                height: 138px;
+                flex-shrink: 0;
+                border-radius: 15px;
+                background-color: #D9D9D9;
+                margin: 15px;
+                
+                line-height: 70px;
+                color: #e6d6ae;
+                
+                text-align: center;
+                font-size: 35px;
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+            }   
+            .boxframe a {
+               text-decoration: none;
+               color: inherit;
+            }
+            .boxframe img {
+                    width: 188px;
+                    padding-top: 20px;
+                } 
 
-    body {
-      background: #f5f5f5;
-      color: #333;
-    }
+            .boxframe:hover {
+                background-color: aliceblue;
+            }
+            #footer {
+                color: #e6d6ae;
+                background-color: #363f4f;
+                font: 17px;
+                width: auto;
+                height: 28px;
+                padding-top: 10px;
+            }
+            #footer a {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
 
-    header {
-      background: #ffe4ef;
-      padding: 1rem;
-      text-align: center;
-      border-bottom: 4px solid #e5c0c0;
-    }
 
-    header h1 {
-      font-size: 2rem;
-      color: #2c3e50;
-    }
+        @media (max-width: 870px) {
+               
+            body {
+                background-color: #856f67;
+            }
+            #headbc {
+                width: auto;
+                height: 100px;
+                background-color: #e6d6ae;   
+            }
+            #logo {
+                
+                padding-left: 15px;
+                padding-top: 6px;
+                padding-right: 6px;
+                float: left;
+                margin-right: 1px;
+            }
+            #logo img {
+                    width: 88px;
+                }
+            #menu {
+                float: right;
+                margin:auto;
+                padding-top: 20px;
+                padding-right: 20px;                
+            }
+            #menu img {
+                    width: 55px;
+                }
+            #titles {
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                font-size: 59px;
+                text-align: left;
+                color: #363f4f;
+                margin:auto
+                line-height: 0px;
+                
+            }
 
-    header p {
-      font-size: 1rem;
-      color: #555;
-    }
+            #subtitle {
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                font-size: 23px;
+                text-align: left;
+                color: #363f4f;
+                float: left;     
+                margin-left: 5px;
+                
+            }
+  
+            #youtube {
+                float: center;
+                clear: none;
+                line-height: 0px;
+                background-color: #363f4f;
+            }
+            img {
+                    width: 500px;
+                }
+            .linebreak {
+                background-color: #ff7bd5;
+                width: auto;
+                height: 8px;
+            }
 
-    .promo {
-      background: white;
-      text-align: center;
-      padding: 1rem;
-    }
+            .category {
+                background-color: #363f4f;
+                color: #e6d6ae;
+                font-size: 30px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                text-align: center;
+                width: auto;
+                height: 40px;
+                padding-top: 7px;
+                margin-bottom: 20px;
+            }
 
-    .promo img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-    }
+            #container1 {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                 
+            }
+            #container1 > div {
+                margin: 8px;
+                margin-bottom: 45px;
+                padding: 5px;
+                width: 110px;
+                
+            }
+            .boxframe {
+                
+                width: 110px;
+                height: 70px;
+                flex-shrink: 0;
+                border-radius: 8px;
+                background-color: #D9D9D9;
+                margin: 8px;
+                
+                line-height: 35px;
+                color: #e6d6ae;
+                text-align: center;
+                font-size: 17px;
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .boxframe a {
+                text-decoration: none;
+                color: inherit;
+            }
+            .boxframe img {
+                    width: 88px;
+                    padding-top: 10px;
+                } 
+            .boxframe:hover {
+                background-color: aliceblue;
+            }
+            #footer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                color: #e6d6ae;
+                background-color: #363f4f;
+                font-size: 15px;
+                width: auto;
+                height: 23px;
+                padding-top: 5px;
+            }
+            #footer a {
+                text-decoration: none;
+                color: inherit;
+                margin-right: 5px;
+            }
+        }
 
-    .section {
-      padding: 1.5rem 1rem;
-      background: #5c4438;
-      color: #fff;
-      text-align: center;
-    }
+        @media (max-width: 533px) {
+               
+               body {
+                   background-color: #856f67;
+               }
+               #headbc {
+                   width: auto;
+                   height: 75px;
+                   background-color: #e6d6ae;   
+               }
+               #logo {
+                   
+                   padding-left: 10px;
+                   padding-top: 3px;
+                   padding-right: 4px;
+                   float: left;
+                   margin-right: 1px;                   
+               }
+               #logo img {
+                       width: 68px;
+                   }
+               #menu {
+                   float: right;
+                   margin:auto;
+                   padding-top: 17px;
+                   padding-right: 20px;                   
+               }
+               #menu img {
+                       width: 40px;
+                   }
+               #titles {
+                   font-family: Arial, Helvetica, sans-serif;
+                   font-weight: bold;
+                   font-size: 45px;
+                   text-align: left;
+                   color: #363f4f;
+                   margin:auto
+                   line-height: 0px;
+                   
+               }
+   
+               #subtitle {
+                   font-family: Arial, Helvetica, sans-serif;
+                   font-weight: bold;
+                   font-size: 17px;
+                   text-align: left;
+                   color: #363f4f;
+                   float: left;     
+                   margin-left: 5px;
+                   
+               }
+     
+               #youtube {
+                   float: center;
+                   clear: none;
+                   line-height: 0px;
+                   background-color: #363f4f;
+               }
+               img {
+                       width: 380px;
+                   }
+               .linebreak {
+                   background-color: #ff7bd5;
+                   width: auto;
+                   height: 8px;
+               }
+   
+               .category {
+                   background-color: #363f4f;
+                   color: #e6d6ae;
+                   font-size: 20px;
+                   font-family: Arial, Helvetica, sans-serif;
+                   font-weight: bold;
+                   text-align: center;
+                   width: auto;
+                   height: 30px;
+                   padding-top: 7px;
+                   margin-bottom: 20px;
+               }
+   
+               #container1 {
+                   display: flex;
+                   flex-wrap: wrap;
+                   justify-content: center;
+                    
+               }
+               #container1 > div {
+                   margin: 5px;
+                   margin-bottom: 45px;
+                   padding: 5px;
+                   width: 110px;
+                   
+               }
+               .boxframe {
+                   
+                   width: 110px;
+                   height: 70px;
+                   flex-shrink: 0;
+                   border-radius: 8px;
+                   background-color: #D9D9D9;
+                   margin: 8px;
+                   
+                   line-height: 35px;
+                   color: #e6d6ae;
+                   text-align: center;
+                   font-size: 17px;
+                   font-weight: bold;
+                   font-family: Arial, Helvetica, sans-serif;
+               }
+               .boxframe a {
+                    text-decoration: none;
+                    color: inherit;
+               }
+               .boxframe img {
+                       width: 88px;
+                       padding-top: 10px;
+                   } 
+               .boxframe:hover {
+                   background-color: aliceblue;
+               }
+               .#footer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                color: #e6d6ae;
+                background-color: #363f4f;
+                font-size: 12px;
+                width: auto;
+                height: 15px;
+                padding-top: 2px;
+                 
+            }
+            #footer a {
+                text-decoration: none;
+                color: inherit;
+                margin-right: 2px;
+            }
+           }
+        </style>
+    </head>
+    <body>
+        <center> 
+        <div id="headbc">
+          <div id="logo"><img src="logo.png"></div>
+          <div id="menu"><a href="https://preview.gisugo.com">
+            <img src="menu button.png"></a></div>  
+          <div id="titles">GISUGO</div>
+          <div id="subtitle">Local Service Marketplace</div>
 
-    .section h2 {
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
+        </div>
+        <div class="linebreak"></div>
+        <div id="youtube"><a href="#footer"><img src="YouTube.jpg" alt]="youtube"></a></div>
+        <div class="linebreak"></div>
+        <div class="category">BASIC HELPER</div>
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: 1rem;
-      padding: 1rem;
-      background: #a0846c;
-    }
+        <div id="container1">
 
-    .card {
-      background: #fff;
-      border-radius: 8px;
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+        <div class="boxframe"><a href="pages/headings.html" target="_blank"><img src="Hatod.png">HATOD </a></div>
+        <div class="boxframe"><a href="pages/headings.html" target="_blank"><img src="Hakot.png">HAKOT </a></div>
+        <div class="boxframe"><img src="Kompra.png">KOMPRA </div>
+        <div class="boxframe"><img src="Luto.png">LUTO </div>
+        <div class="boxframe"><img src="Hugas.png">HUGAS </div>
+        <div class="boxframe"><img src="Laba.png">LABA </div>
+        <div class="boxframe"><a href="limpyo.html"><img src="Limpyo.png">LIMPYO </a></div>
+        <div class="boxframe"><img src="Tindera.png">TINDERA </div>
+        <div class="boxframe"><img src="Bantay.png">BANTAY </div>
+        </div>
+        
+        <div class="category">SKILLED WORKER</div>
+        
+        <div id="container1">
+        <div class="boxframe"><img src="Painter.png">PAINTER</div>
+        <div class="boxframe"><img src="Carpenter.png">CARPENTER</div>
+        <div class="boxframe"><img src="Plumber.png">PLUMBER </div>
+        </div>
+        <div id="container1">
+        <div class="boxframe"><img src="Security.png">SECURITY</div>
+        <div class="boxframe"><img src="Driver.png">DRIVER</div>
+        <div class="boxframe"><img src="Tutor.png">TUTOR </div>
+        </div>
+        
+        <div class="category">PROFESSIONAL</div>
+       
+        <div id="container1">
+        <div class="boxframe"><img src="Nurse.png">NURSE</div>
+        <div class="boxframe"><img src="Doctor.png">DOCTOR</div>
+        <div class="boxframe"><img src="Lawyer.png">LAWYER </div>
+        </div>
+        <div id="container1">
+        <div class="boxframe"><img src="Mechanic.png">MECHANIC</div>
+        <div class="boxframe"><img src="Electrician.png">ELECTRICIAN</div>
+        <div class="boxframe"><img src="Tailor.png">TAILOR</div>
+        </div>
+        <div id="footer"><a href="#">GISUGO.com</a> is &copy;Copyright Designed by Real Interface Studios LLC</div>
+        </center>
+        
 
-    .card img {
-      max-width: 60px;
-      height: auto;
-      margin-bottom: 0.5rem;
-    }
 
-    footer {
-      background: #2c3e50;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.8rem;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>GISUGO</h1>
-    <p>Local Service Marketplace</p>
-  </header>
+    </body>
 
-  <div class="promo">
-    <img src="https://your-image-upload.com/video-promo.jpg" alt="Promo Video and Job Post Feature">
-  </div>
-
-  <section class="section">
-    <h2>Basic Helper</h2>
-  </section>
-
-  <div class="grid">
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/delivery.png"/><span>Hatod</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/moving-house.png"/><span>Hakot</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/shopping-cart.png"/><span>Kompra</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/cooking-book.png"/><span>Luto</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/sink.png"/><span>Hugas</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/washing-machine.png"/><span>Laba</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/cleaning-a-window.png"/><span>Limpyu</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/seller.png"/><span>Tindera</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/guard.png"/><span>Bantay</span></div>
-  </div>
-
-  <section class="section">
-    <h2>Skilled Worker</h2>
-  </section>
-
-  <div class="grid">
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/paint-roller.png"/><span>Painter</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/hammer.png"/><span>Carpenter</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/plumbing.png"/><span>Plumber</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/policeman-male.png"/><span>Security</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/car.png"/><span>Driver</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/training.png"/><span>Tutor</span></div>
-  </div>
-
-  <section class="section">
-    <h2>Professional</h2>
-  </section>
-
-  <div class="grid">
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/nurse.png"/><span>Nurse</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/doctor-male.png"/><span>Doctor</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/judge.png"/><span>Lawyer</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/mechanic.png"/><span>Mechanic</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/electrical.png"/><span>Electrician</span></div>
-    <div class="card"><img src="https://img.icons8.com/ios-filled/100/000000/tailor.png"/><span>Tailor</span></div>
-  </div>
-
-  <footer>
-    GISUGO.com All Rights Reserved Real Interface Studios LLC
-  </footer>
-</body>
 </html>
