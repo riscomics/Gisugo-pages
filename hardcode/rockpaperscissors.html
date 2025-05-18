@@ -160,9 +160,9 @@
           <div class="game2">
             <div style="margin: auto;">Are You Old Enough To Drink?</div>
             <div class="gamename2">
-              <P>Person 1</P>
-              <P>Person 2</P>
-              <P>Person 3</P>
+              <P>Responses</P>
+              <P>People </P>
+              <P>Purchases</P>
             </div>
             <div class="gamebuttons2">
               <button class="buttons2" onclick="              
@@ -170,11 +170,11 @@
 
               ">Enter Bar</button>
               <button class="buttons2" onclick="
-              enterBar();
+              enterBar1();
 
               ">Enter Bar</button>
               <button class="buttons2" onclick="
-              enterBar();
+              enterBar2();
 
               ">Enter Bar</button>
             </div>
@@ -189,32 +189,7 @@
             </div>
             <div class="gamebuttons2">
               <button class="buttons2" onclick="
-
-              const hours = Math.floor((Math.random() * 55) + 1);
-              let work = '';
-
-              if(hours >= 0 && hours <= 30){
-                work = 'part-time';
-              } else if(hours > 30 && hours <= 40){
-                work = 'fulltime';
-              } else {
-                work = 'overtime';
-              }
-
-              regHours = hours <= 40 ? hours : 40;
-              overtimeHours = hours > 40 ? hours - 40 : 0;
-
-              let paid = 0; 
-
-              if(work === 'part-time' && work === 'fulltime'){
-                paid = regHours * 30;
-              } else {
-                paid = (regHours * 30) + (overtimeHours * 45);
-              }
-
-              alert(`You worked a total of ${hours} hours this week, which is considered ${work} with ${regHours} regular hours and ${overtimeHours} overtime hours.
-
-              This earns you a total of $${paid} dollars.`);
+              weeklyHours(); 
               
                 ">Work hours</button>
               <button class="buttons2" onclick="
@@ -782,8 +757,278 @@ Secure Border but improve migrant processing: ${climateCare.Nonbeliever}%`);
       </div>
     </div>
 
-<script>       
+<script>  
+const workWeek = {
+  Monday: 0,
+  Tuesday: 0,
+  Wednesday: 0,
+  Thursday: 0,
+  Friday: 0,
+  Saturday: 0, 
+  totalHours: 0,  
+}
+function workHours(){
+  const dayHours = Math.floor(Math.random() * 5) +5;
+  return dayHours;
+}
+function weeklyHours(){
+  workWeek.Monday = workHours();
+  workWeek.Tuesday = workHours();
+  workWeek.Wednesday = workHours();
+  workWeek.Thursday = workHours();
+  workWeek.Friday = workHours();
+  workWeek.Saturday = workHours();
+  workWeek.totalHours = workWeek.Monday + workWeek.Tuesday + workWeek.Wednesday + workWeek.Thursday + workWeek.Friday + workWeek.Saturday;
 
+let regularpayMonday = 0;
+let overtimepayMonday = 0;
+
+if(workWeek.Monday <= 8){
+  regularpayMonday = workWeek.Monday * 32;
+} else {
+  regularpayMonday = 8 * 32;
+}
+if(workWeek.Monday > 8){
+  overtimepayMonday = (workWeek.Monday - 8) * 48;
+} else {
+  overtimepayMonday = 0;
+}
+
+if(workWeek.Tuesday <= 8){
+  regularpayTuesday = workWeek.Tuesday * 32;
+} else {
+  regularpayTuesday = 8 * 32;
+}
+if(workWeek.Tuesday > 8){
+  overtimepayTuesday = (workWeek.Tuesday - 8) * 48;
+} else {
+  overtimepayTuesday = 0;
+}
+
+if(workWeek.Wednesday <= 8){
+  regularpayWednesday = workWeek.Wednesday * 32;
+} else {
+  regularpayWednesday = 8 * 32;
+}
+if(workWeek.Wednesday > 8){
+  overtimepayWednesday = (workWeek.Wednesday - 8) * 48;
+} else {
+  overtimepayWednesday = 0;
+}
+
+if(workWeek.Thursday <= 8){
+  regularpayThursday = workWeek.Thursday * 32;
+} else {
+  regularpayThursday = 8 * 32;
+}
+if(workWeek.Thursday > 8){
+  overtimepayThursday = (workWeek.Thursday - 8) * 48;
+} else {
+  overtimepayThursday = 0;
+}
+
+if(workWeek.Friday <= 8){
+  regularpayFriday = workWeek.Friday * 32;
+} else {
+  regularpayFriday = 8 * 32;
+}
+if(workWeek.Friday > 8){
+  overtimepayFriday = (workWeek.Friday - 8) * 48;
+} else {
+  overtimepayFriday = 0;
+}
+
+if(workWeek.Saturday <= 8){
+  regularpaySaturday = workWeek.Saturday * 32;
+} else {
+  regularpaySaturday = 8 * 32;
+}
+if(workWeek.Saturday > 8){
+  overtimepaySaturday = (workWeek.Saturday - 8) * 48;
+} else {
+  overtimepaySaturday = 0;
+}
+
+  let grossEarning = (regularpayMonday + overtimepayMonday) + (regularpayTuesday + overtimepayTuesday) + (regularpayWednesday + overtimepayWednesday) +
+  (regularpayThursday + overtimepayThursday)+(regularpayFriday + overtimepayFriday)+(regularpaySaturday + overtimepaySaturday); 
+  
+  alert(`This week, you worked a total of ${workWeek.totalHours} hours:
+Monday: ${workWeek.Monday}
+Tuesday: ${workWeek.Tuesday}
+Wednesday: ${workWeek.Wednesday}
+Thursday: ${workWeek.Thursday}
+Friday: ${workWeek.Friday}
+Saturday: ${workWeek.Saturday}
+Gross Earning: $${grossEarning}`);
+}
+
+function monthlyPay(hours1, hours2){  
+
+  workCycle1 = '';
+  workCycle2 = '';
+
+  workCycle1 = hours1 >= 0 && hours1 <= 60 ? 'part-time'
+              : hours1 > 60 && hours1 <= 80 ? 'fulltime' 
+              : 'overtime';
+
+  workCycle2 = hours2 >= 0 && hours2 <= 60 ? 'part-time'
+              : hours2 > 60 && hours2 <= 80 ? 'fulltime'
+              : 'overtime';
+
+  regHours1 = workCycle1 === 'part-time' || workCycle1 === 'fulltime' ? hours1 : 80;
+  regHours2 = workCycle2 === 'part-time' || workCycle2 === 'fulltime' ? hours2 : 80;
+  
+  overtimeHours1 = workCycle1 === 'overtime' ? hours1 - 80 : 0; 
+  overtimeHours2 = workCycle2 === 'overtime' ? hours2 - 80 : 0;
+
+  grossPay1 = regHours1 * 30 + overtimeHours1 * 45;
+  grossPay2 = regHours2 * 30 + overtimeHours2 * 45;
+
+  insurance1 = 158.60;
+  retirement1 = grossPay1 * .05;
+  benefits1 = insurance1 + retirement1;
+  tax1 = (grossPay1 - benefits1) * .25;
+
+  totalDeductibles1 = tax1 + benefits1;
+
+  insurance2 = 158.60;
+  retirement2 = grossPay2 * .05;
+  benefits2 = insurance2 + retirement2;
+  tax2 = (grossPay2 - benefits2) * .25;
+
+  totalDeductibles2 = tax2 + benefits2;
+
+  payCheck1 = (grossPay1 - totalDeductibles1);
+  payCheck2 = (grossPay2 - totalDeductibles2);
+
+  alert(`You worked a total of ${hours1} hours in the first half of the month and earned a total of $${payCheck1.toFixed(2)} which includes ${overtimeHours1} overtime hours and a total of $${totalDeductibles1.toFixed(2)} in deductibles ($${tax1.toFixed(2)} in tax and $${benefits1.toFixed(2)} in benefits).
+  
+In the second half of the month, you worked an additional ${hours2} hours and earned a total of $${payCheck2.toFixed(2)} with ${overtimeHours2} overtime hours and a total of $${totalDeductibles2.toFixed(2)} in deductibles ($${tax2.toFixed(2)} in tax and $${benefits2.toFixed(2)} in benefits).`);
+
+}
+
+function eveningName(){
+  barEntry.dayWeek += 1;
+  barEntry.dayWeek >= 8 ? barEntry.dayWeek = 1 : barEntry.dayWeek; 
+  
+  let dayEvening = ''; 
+  dayEvening = barEntry.dayWeek === 1 ? 'Monday'
+          : barEntry.dayWeek === 2 ? 'Tuesday'
+          : barEntry.dayWeek === 3 ? 'Wednesday'
+          : barEntry.dayWeek === 4 ? 'Thursday'
+          : barEntry.dayWeek === 5 ? 'Friday'
+          : barEntry.dayWeek === 6 ? 'Saturday'
+          : 'Sunday';
+          
+  return dayEvening;
+}
+const barPurchase = {
+  Beer: 0,
+  Whisky: 0, 
+  Wine: 0,
+  Soda: 0,
+};      
+function barRevenue(beerRevenue, whiskyRevenue, wineRevenue, sodaRevenue){
+  soldTotal = beerRevenue + whiskyRevenue + wineRevenue + sodaRevenue; 
+  return soldTotal;
+}
+function enterBar2(){
+  const barCustomers = Math.floor(Math.random() * (100-50)) +50;
+
+  let soldItem1 = Math.floor(Math.random() * (barCustomers - 20)) +20;
+  let soldItem2 = Math.floor(Math.random() * (barCustomers - soldItem1)); 
+  let soldItem3 = Math.floor(Math.random() * (barCustomers - (soldItem1 + soldItem2)));
+  let soldItem4 = barCustomers - (soldItem1 + soldItem2 + soldItem3); 
+
+  barPurchase.Beer = soldItem1;
+  barPurchase.Whisky = soldItem2;
+  barPurchase.Wine = soldItem3;
+  barPurchase.Soda = soldItem4;
+
+  beerPrice = 8;
+  whiskyPrice = 12;
+  winePrice = 18;
+  sodaPrice = 5;
+
+  beerRevenue = beerPrice * soldItem1;
+  whiskyRevenue = whiskyPrice * soldItem2;
+  wineRevenue = winePrice * soldItem3;
+  sodaRevenue = sodaPrice * soldItem4;
+
+  soldTotal = barRevenue(beerRevenue, whiskyRevenue, wineRevenue, sodaRevenue);
+
+  eveningWeek = eveningName();
+
+  alert(`On ${eveningWeek} night, the bar had ${barCustomers} customers and sold:
+
+Beer: ${barPurchase.Beer}
+Whisky: ${barPurchase.Whisky}
+Wine: ${barPurchase.Wine}
+Soda: ${barPurchase.Soda}
+Bar Revenue: $${soldTotal}`);
+}
+const barEntry = {
+  dayWeek: 0,
+  People: 0,
+  Minor: 0,
+  College: 0,
+  Adult: 0,
+  Unknown: 0,
+};
+function enterBar1(){ 
+  const peopleEntering = Math.floor(Math.random() * (100 - 50)) +50; 70
+
+  let grownAdults = Math.floor(Math.random() * (peopleEntering - 20)) +20;  
+  let youngAdults = Math.floor(Math.random() * (peopleEntering - grownAdults));  
+  let sneakyMinors = Math.floor(Math.random() * (peopleEntering - (grownAdults + youngAdults))); 
+  let unKnown = peopleEntering - (grownAdults + youngAdults + sneakyMinors);
+
+  barEntry.People = peopleEntering;
+  barEntry.Adult = grownAdults;
+  barEntry.College = youngAdults;
+  barEntry.Minor = sneakyMinors;
+  barEntry.unknown = unKnown;
+
+  eveningWeek = eveningName();
+
+  alert(`It's ${eveningWeek} night at the bar. Out of ${barEntry.People} people lining up to enter:
+
+Legal of Age: ${barEntry.Adult}
+College of Age: ${barEntry.College}
+Minors with Fake ID: ${barEntry.Minor}
+Persons with no ID: ${barEntry.unknown}`);
+}
+
+function enterBar(){
+  
+  let randomAge = Math.floor(Math.random() * 49) +1;
+  let personAge = '';
+
+  personAge = randomAge >= 21 ? 'Adult'
+            : randomAge <= 20 && randomAge >= 17 ? 'Minor'
+            : 'unknown';
+
+  let bartender = '';
+
+  if (personAge === 'unknown'){
+      bartender = 'unknown';
+    } else if (personAge === 'Minor'){
+      bartender = 'Minor';
+    } else {
+      bartender = 'Adult';
+    }
+
+  let bouncer = ''; 
+
+  if(personAge === 'unknown'){
+    bouncer = 'No ID. No Drinks. Period.';
+  } else if (personAge === 'Minor'){
+    bouncer = 'Go home kid!';
+  } else if (personAge === 'Adult'){
+    bouncer = 'Have a great time!';
+  }
+   alert(`A person orders a drink, the bartender says ${bartender}. The bouncer says ${bouncer}`);
+}
 const yearlyPolls = {
   Year: 2020,
 };
@@ -899,7 +1144,6 @@ const rollDivide = {
   Odd: 0,
   Even: 0,
 }; 
-
 function diceRoller2() {
   const rollingDice = Math.floor(Math.random() * 6) +1;
 
@@ -992,7 +1236,6 @@ Wins: ${gameScore.wins}, Losses: ${gameScore.losses}, Ties: ${gameScore.ties}
     `);
 }
 
-
 const driveCycle = {
   range: 0,
   finalReceipt: 0,
@@ -1000,7 +1243,6 @@ const driveCycle = {
   total: 0,
   yearly: 0,
 };
-
 function getDistance(){ 
   return Math.floor(Math.random() * 450) +1;   
 }
@@ -1033,7 +1275,7 @@ function getFuel(){
   driveCycle.mpg = parseFloat(mpg.toFixed(2));
   driveCycle.total += finalReceipt;
 
-  driveCycle.yearly = (finalReceipt * refuel) * monthCount;
+  driveCycle.yearly = parseFloat((finalReceipt * refuel) * monthCount).toFixed(2);
 
   alert(`Driven: ${driveCycle.range} miles
 MPG:  ${driveCycle.mpg}
@@ -1044,7 +1286,6 @@ Monthly Refueling: ${refuel}
 Number of Months: ${monthCount}
 Yearly Budget: $${driveCycle.yearly}`);
 }
-
 
 function milesKilometers(length){
   let k = 1.6; 
@@ -1168,82 +1409,6 @@ function rollDice(){
   }
 
   alert(`An ${typeRoll1} number of ${player1Roll}. An ${typeRoll2} number of ${player2Roll}. ${playerScore}!`);
-
-}
-function enterBar(){
-  
-  let randomAge = Math.floor(Math.random() * 49) +1;
-  let personAge = '';
-
-  personAge = randomAge >= 21 ? 'Adult'
-            : randomAge <= 20 && randomAge >= 17 ? 'Minor'
-            : 'unknown';
-
-  let bartender = '';
-
-  if (personAge === 'unknown'){
-      bartender = 'unknown';
-    } else if (personAge === 'Minor'){
-      bartender = 'Minor';
-    } else {
-      bartender = 'Adult';
-    }
-
-  let bouncer = ''; 
-
-  if(personAge === 'unknown'){
-    bouncer = 'No ID. No Drinks. Period.';
-  } else if (personAge === 'Minor'){
-    bouncer = 'Go home kid!';
-  } else if (personAge === 'Adult'){
-    bouncer = 'Have a great time!';
-  }
-   alert(`A person orders a drink, the bartender says ${bartender}. The bouncer says ${bouncer}`);
-}
-
-  
-function monthlyPay(hours1, hours2){  
-
-  workCycle1 = '';
-  workCycle2 = '';
-
-  workCycle1 = hours1 >= 0 && hours1 <= 60 ? 'part-time'
-              : hours1 > 60 && hours1 <= 80 ? 'fulltime' 
-              : 'overtime';
-
-  workCycle2 = hours2 >= 0 && hours2 <= 60 ? 'part-time'
-              : hours2 > 60 && hours2 <= 80 ? 'fulltime'
-              : 'overtime';
-
-  regHours1 = workCycle1 === 'part-time' || workCycle1 === 'fulltime' ? hours1 : 80;
-  regHours2 = workCycle2 === 'part-time' || workCycle2 === 'fulltime' ? hours2 : 80;
-  
-  overtimeHours1 = workCycle1 === 'overtime' ? hours1 - 80 : 0; 
-  overtimeHours2 = workCycle2 === 'overtime' ? hours2 - 80 : 0;
-
-  grossPay1 = regHours1 * 30 + overtimeHours1 * 45;
-  grossPay2 = regHours2 * 30 + overtimeHours2 * 45;
-
-  insurance1 = 158.60;
-  retirement1 = grossPay1 * .05;
-  benefits1 = insurance1 + retirement1;
-  tax1 = (grossPay1 - benefits1) * .25;
-
-  totalDeductibles1 = tax1 + benefits1;
-
-  insurance2 = 158.60;
-  retirement2 = grossPay2 * .05;
-  benefits2 = insurance2 + retirement2;
-  tax2 = (grossPay2 - benefits2) * .25;
-
-  totalDeductibles2 = tax2 + benefits2;
-
-  payCheck1 = (grossPay1 - totalDeductibles1);
-  payCheck2 = (grossPay2 - totalDeductibles2);
-
-  alert(`You worked a total of ${hours1} hours in the first half of the month and earned a total of $${payCheck1.toFixed(2)} which includes ${overtimeHours1} overtime hours and a total of $${totalDeductibles1.toFixed(2)} in deductibles ($${tax1.toFixed(2)} in tax and $${benefits1.toFixed(2)} in benefits).
-  
-In the second half of the month, you worked an additional ${hours2} hours and earned a total of $${payCheck2.toFixed(2)} with ${overtimeHours2} overtime hours and a total of $${totalDeductibles2.toFixed(2)} in deductibles ($${tax2.toFixed(2)} in tax and $${benefits2.toFixed(2)} in benefits).`);
 
 }
 
